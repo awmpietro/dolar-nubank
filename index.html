@@ -37,7 +37,7 @@
           mm = '0' + mm;
         } 
         var today = mm + '-' + dd + '-' + yyyy;
-        $.getJSON( "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%2702-22-2019%27&$top=100&$format=json&$select=cotacaoVenda", function( data ) {
+        $.getJSON( "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27"+today+"%27&$top=100&$format=json&$select=cotacaoVenda", function( data ) {
           var dolar = document.getElementById('dolar').value;
           var sum1 = dolar * data.value[0].cotacaoVenda;
           var sum2 = (sum1/100) * 4;

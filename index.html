@@ -25,7 +25,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
       function calculate() {
-        $.getJSON( "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%2702-22-2019%27&$top=100&$format=json&$select=cotacaoVenda", function( data ) {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+          dd = '0' + dd;
+        } 
+        if (mm < 10) {
+          mm = '0' + mm;
+        } 
+        var today = mm + '-' + dd + '-' + yyyy;
+        $.getJSON( "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27"+today+"%27&$top=100&$format=json&$select=cotacaoVenda", function( data ) {
           console.log(data.value);
           var dolar = document.getElementById('dolar').value;
           var sum1 = dolar * data.value[0].cotacaoVenda;

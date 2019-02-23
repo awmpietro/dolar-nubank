@@ -26,9 +26,9 @@
     <script>
       function calculate() {
         $.getJSON( "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%2702-22-2019%27&$top=100&$format=json&$select=cotacaoVenda", function( data ) {
-          console.log(data);
+          console.log(data.value);
           var dolar = document.getElementById('dolar').value;
-          var sum1 = dolar * data.value["cotacaoVenda"];
+          var sum1 = dolar * data.value[0].cotacaoVenda;
           var sum2 = (sum1/100) * 4;
           var sum3 = sum1 + sum2;
           var sum4 = (sum3/100) * 6.38;

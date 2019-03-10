@@ -1,6 +1,4 @@
 (function($) {
-    
-
     $("#calculate-btn").click(function(){
         $.LoadingOverlay("show");
         var today = moment().format('MM-DD-YYYY');

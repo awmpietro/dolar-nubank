@@ -10,15 +10,18 @@
     <title>Dólar Nubank</title>
   </head>
   <body>
+    
     <div class="container p60">
+        <div id="loading"></div>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">Valor do dólar - cartão Nubank (já incluído "spread" + IOF).</h4>
+                    <h4 class="card-title text-center">Dólar Nubank</h4>
                     <div class="form-group">
                       <p><input class="form-control form-control-lg" type="text" id="dolar" placeholder="Valor da compra em USD" /></p>
-                      <p><input class="form-control form-control-lg" type="text" id="total" disabled placeholder="R$" /></p>
+                      <p><input class="form-control form-control-lg" type="text" id="total" disabled placeholder="R$" />
+                      <small class="">Valor representa o montante total que virá na fatura, já incluído spread e IOF.</small></p>
                       <p><button type="button" class="btn btn-primary btn-lg" id="calculate-btn">Calcular</button></p>
                     </div>
                 </div>
@@ -34,6 +37,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

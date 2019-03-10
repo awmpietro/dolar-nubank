@@ -39,7 +39,7 @@
         var today = mm + '-' + dd + '-' + yyyy;
         var url = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='"+today+"'&$top=100&$format=json&$select=cotacaoVenda";
         $.getJSON( url, function( data ) {
-          if(data.value) {
+          if(data.value.length > 0) {
             var dolar = document.getElementById('dolar').value;
             var sum1 = dolar * data.value[0].cotacaoVenda;
             var sum2 = (sum1/100) * 4;

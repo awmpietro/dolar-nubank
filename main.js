@@ -21,11 +21,11 @@ const getData = async () => {
         let sum3 = sum1 + sum2;
         let sum4 = (sum3/100) * 6.38;
         let sum5 = sum4 + sum3;
-        let total = sum5.toLocaleString('pt-BR', { style: 'currency', currency: 'REA'})
+        let total = sum5.toLocaleString('pt-BR', {minimumFractionDigits: 2, style: 'currency', currency: 'REA'})
         $('#total').val(total);
-        $('#data').html(moment(res[0].dataHoraCotacao).format("DD/MM/YYYY HH:mm:ss"));
-        $('#compra').html(res[0].cotacaoCompra.toLocaleString('pt-BR', { style: 'currency', currency: 'REA'}));
-        $('#venda').html(res[0].cotacaoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'REA'}));       
+        $('#data').html(moment(res[0].dataHoraCotacao).format("DD/MM/YYYY") + " às " + moment(res[0].dataHoraCotacao).format("HH:mm:ss"));
+        $('#compra').html(res[0].cotacaoCompra.toLocaleString('pt-BR', {minimumFractionDigits: 4, style: 'currency', currency: 'BLR'}));
+        $('#venda').html(res[0].cotacaoVenda.toLocaleString('pt-BR', {minimumFractionDigits: 4, style: 'currency', currency: 'BLR'}));       
 }
 
 const fetchData = async (day) => {
